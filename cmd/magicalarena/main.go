@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	println("Welcome to Magical Arena")
+	println("")
 
 	player1 := player.NewPlayer("Bhairava", 50, 5, 10)
 	player2 := player.NewPlayer("Supreme Yaskin", 100, 10, 5)
