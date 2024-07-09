@@ -3,6 +3,7 @@ package match
 import (
 	player "magicalarena/internal/player"
 	dice "magicalarena/internal/utils/dice"
+	helpers "magicalarena/internal/utils/helpers"
 )
 
 // Match represents a single match between two players.
@@ -35,11 +36,10 @@ func (m *Match) Fight() string {
 	for m.attacker.Health() > 0 && m.defender.Health() > 0 {
 		attackRoll := dice.RollD6()
 		defendRoll := dice.RollD6()
+		helpers.PrintDiceRollDetails(m.attacker.Name(), attackRoll, m.defender.Name(), defendRoll)
 
-		println(m.attacker.Name(), "rolls", attackRoll, "against", m.defender.Name(), "who rolls", defendRoll)
 		attackDamage := attackRoll * m.attacker.Attack()
 		defendDamage := defendRoll * m.defender.Strength()
-
 		println(m.attacker.Name(), "deals", attackDamage, "damage,", m.defender.Name(), "deals", defendDamage, "damage")
 
 		netDamage := attackDamage - defendDamage
