@@ -15,7 +15,7 @@ func NewPlayer(name string, health int, strength int, attack int) (*Player, erro
 	if name == "" {
 		return nil, errors.New("name cannot be empty")
 	}
-	if health < 0  || strength < 0 || attack < 0 {
+	if health < 0 || strength < 0 || attack < 0 {
 		return nil, errors.New("atrributes cannot be negative")
 	}
 	return &Player{
