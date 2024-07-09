@@ -1,4 +1,3 @@
-// Package match contains functions and structs for managing player matches in a game.
 package match
 
 import (
