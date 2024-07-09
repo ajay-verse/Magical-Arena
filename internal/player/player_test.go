@@ -3,14 +3,24 @@ package player
 import "testing"
 
 func TestNewPlayer(t *testing.T) {
-	p := NewPlayer("Ajay", 100, 10, 15)
+	p, _ := NewPlayer("Ajay", 100, 10, 15)
 	if p.Name() != "Ajay" || p.Health() != 100 || p.Strength() != 10 || p.Attack() != 15 {
 		t.Error("NewPlayer returned incorrect values")
+	}
+
+    _, err := NewPlayer("", 100, 10, 15)
+    if err == nil || err.Error() != "name cannot be empty" {
+		t.Error("NewPlayer did not return expected error for empty name")
+	}
+
+    _, err = NewPlayer("Ajay", -100, 10, 15)
+    if err == nil || err.Error() != "atrributes cannot be negative" {
+		t.Error("NewPlayer did not return expected error for empty name")
 	}
 }
 
 func TestSetName(t *testing.T) {
-	p := NewPlayer("Ajay", 100, 10, 15)
+	p, _ := NewPlayer("Ajay", 100, 10, 15)
 	err := p.SetName("")
 	if err == nil || err.Error() != "name cannot be empty" {
 		t.Error("SetName did not return expected error for empty name")
@@ -22,7 +32,7 @@ func TestSetName(t *testing.T) {
 }
 
 func TestSetHealth(t *testing.T) {
-	p := NewPlayer("Ajay", 100, 10, 15)
+	p, _ := NewPlayer("Ajay", 100, 10, 15)
 	err := p.SetHealth(-50)
 	if err == nil || err.Error() != "health cannot be negative" {
 		t.Error("SetHealth did not return expected error for negative health")
@@ -34,7 +44,7 @@ func TestSetHealth(t *testing.T) {
 }
 
 func TestSetAttack(t *testing.T) {
-	p := NewPlayer("Ajay", 100, 10, 15)
+	p, _ := NewPlayer("Ajay", 100, 10, 15)
 	err := p.SetAttack(-20)
 	if err == nil || err.Error() != "attack cannot be negative" {
 		t.Error("SetAttack did not return expected error for negative attack")
@@ -46,7 +56,7 @@ func TestSetAttack(t *testing.T) {
 }
 
 func TestSetStrength(t *testing.T) {
-	p := NewPlayer("Ajay", 100, 10, 15)
+	p, _ := NewPlayer("Ajay", 100, 10, 15)
 	err := p.SetStrength(-10)
 	if err == nil || err.Error() != "strength cannot be negative" {
 		t.Error("SetStrength did not return expected error for negative strength")
