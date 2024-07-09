@@ -1,5 +1,7 @@
 package player
 
+import "errors"
+
 // Player represents a character in Magical Arena Game with attributes given.
 type Player struct {
 	name     string // Name of the player.
@@ -36,4 +38,40 @@ func (p *Player) Attack() int {
 // Strength returns the strength of the player.
 func (p *Player) Strength() int {
 	return p.strength
+}
+
+// SetName sets the name of the player.
+func (p *Player) SetName(name string) error {
+	if name == "" {
+		return errors.New("name cannot be empty")
+	}
+	p.name = name
+	return nil
+}
+
+// SetHealth sets the health points of the player.
+func (p *Player) SetHealth(health int) error {
+	if health < 0 {
+		return errors.New("health cannot be negative")
+	}
+	p.health = health
+	return nil
+}
+
+// SetAttack sets the attack power of the player.
+func (p *Player) SetAttack(attack int) error {
+	if attack < 0 {
+		return errors.New("attack cannot be negative")
+	}
+	p.attack = attack
+	return nil
+}
+
+// SetStrength sets the strength of the player.
+func (p *Player) SetStrength(strength int) error {
+	if strength < 0 {
+		return errors.New("strength cannot be negative")
+	}
+	p.strength = strength
+	return nil
 }
