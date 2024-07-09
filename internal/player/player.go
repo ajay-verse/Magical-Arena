@@ -17,3 +17,23 @@ func NewPlayer(name string, health int, strength int, attack int) *Player {
 		attack:   attack,
 	}
 }
+
+// Name returns the name of the player.
+func (p *Player) Name() string {
+	return p.name
+}
+
+// Health returns the health points of the player.
+func (p *Player) Health() int {
+	return p.health
+}
+
+// Attack returns the attack power of the player.
+func (p *Player) Attack() int {
+	return p.attack
+}
+
+// Strength returns the strength of the player.
+func (p *Player) Strength() int {
+	return p.strength
+}
