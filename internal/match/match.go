@@ -55,7 +55,7 @@ func (m *Match) Fight() string {
 		println()
 	}
 
-	if m.attacker.Health() < 0 {
+	if m.attacker.Health() <= 0 {
 		return m.defender.Name()
 	} else {
 		return m.attacker.Name()
