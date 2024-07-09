@@ -14,10 +14,19 @@ import (
 func main() {
 	helpers.PrintWelcomeMessage()
 
-	player1 := player.NewPlayer("Arjuna", 100, 5, 10)
-	helpers.PrintPlayerDetails(player1)
+	player1, err1 := player.NewPlayer("Arjuna", 100, 5, 10)
+	if err1 != nil {
+        fmt.Println(err1)
+        return
+    }
 
-	player2 := player.NewPlayer("Karna", 50, 10, 5)
+	player2, err2 := player.NewPlayer("Karna", 50, 10, 5)
+	if err2 != nil {
+        fmt.Println(err2)
+        return
+    }
+	
+	helpers.PrintPlayerDetails(player1)
 	helpers.PrintPlayerDetails(player2)
 
 	match1 := match.CreateNewMatch(player1, player2)
