@@ -25,7 +25,7 @@ func PrintPlayerDetails(player *player.Player) {
 }
 
 func PrintDiceRollDetails(attacker string, attackerRoll int, defender string, defenderRoll int) {
-	fmt.Printf(x.BLUE+"🎲 %s %d vs %s %d 🎲\n"+x.RESET, attacker, attackerRoll, defender, defenderRoll)
+	fmt.Printf(x.BLUE+"%s 🎲 %d vs %s 🎲 %d\n"+x.RESET, attacker, attackerRoll, defender, defenderRoll)
 }
 
 func PrintAttackDetails(attackDamage int, defenceProtection int) {
@@ -33,5 +33,5 @@ func PrintAttackDetails(attackDamage int, defenceProtection int) {
 }
 
 func PrintHealthDetails(attackerHealth int, defenderHealth int) {
-	fmt.Printf(x.BLUE+"Health🩸 %d vs Health🩸 %d \n\n"+x.RESET, attackerHealth, defenderHealth)
+	fmt.Printf(x.BLUE+"Health🔋 %d vs Health🔋 %d \n\n"+x.RESET, attackerHealth, defenderHealth)
 }
