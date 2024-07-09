@@ -11,13 +11,19 @@ type Player struct {
 }
 
 // NewPlayer creates a new Player instance with the given name, health, strength, and attack.
-func NewPlayer(name string, health int, strength int, attack int) *Player {
+func NewPlayer(name string, health int, strength int, attack int) (*Player, error) {
+	if name == "" {
+		return nil, errors.New("name cannot be empty")
+	}
+	if health < 0  || strength < 0 || attack < 0 {
+		return nil, errors.New("atrributes cannot be negative")
+	}
 	return &Player{
 		name:     name,
 		health:   health,
 		strength: strength,
 		attack:   attack,
-	}
+	}, nil
 }
 
 // Name returns the name of the player.
