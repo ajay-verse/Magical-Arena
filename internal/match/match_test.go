@@ -1,3 +1,4 @@
+// Package match contains functions and structs for managing player matches in a game.
 package match
 
 import (
@@ -6,12 +7,14 @@ import (
 
 	// Local Packages
 	player "magicalarena/internal/player"
-	
 )
 
+// TestCreateNewMatch tests the CreateNewMatch function.
+// It creates two players with different initial health points and strengths.
+// Then it creates a new match with these players and checks if the attacker and defender are set correctly.
 func TestCreateNewMatch(t *testing.T) {
 	player1, _ := player.NewPlayer("Player 1", 100, 5, 10)
-	player2, _ := player.NewPlayer("Player 1", 50, 5, 10)
+	player2, _ := player.NewPlayer("Player 2", 50, 5, 10)
 
 	match := CreateNewMatch(player1, player2)
 
@@ -23,6 +26,11 @@ func TestCreateNewMatch(t *testing.T) {
 	}
 }
 
+// TestFight tests the Fight method of the Match struct.
+// It creates two players with different initial health points and strengths.
+// Then it creates a new match with these players and simulates a fight.
+// The function checks if the winner is either "Player 1" or "Player 2".
+// If the winner is neither, it fails the test with an error message.
 func TestFight(t *testing.T) {
 	player1, _ := player.NewPlayer("Player 1", 100, 5, 10)
 	player2, _ := player.NewPlayer("Player 2", 50, 10, 5)
