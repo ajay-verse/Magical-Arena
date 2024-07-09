@@ -22,5 +22,5 @@ func main() {
 
 	match1 := match.CreateNewMatch(player1, player2)
 	winner := match1.Fight()
-	fmt.Printf(x.GREEN+"🎉 Hurray! %s Won 🎉\n"+x.RESET, winner)
+	fmt.Printf(x.GREEN+"\n\n🎉 Hurray! %s Won 🎉\n"+x.RESET, winner)
 }

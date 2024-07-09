@@ -33,14 +33,17 @@ func CreateNewMatch(player1 *player.Player, player2 *player.Player) *Match {
 // The function continues until one of the players' health drops to zero.
 // It returns the name of the winner.
 func (m *Match) Fight() string {
+	var round int = 1
 	for m.attacker.Health() > 0 && m.defender.Health() > 0 {
+		helpers.PrintRoundName(round)
+
 		attackRoll := dice.RollD6()
 		defendRoll := dice.RollD6()
 		helpers.PrintDiceRollDetails(m.attacker.Name(), attackRoll, m.defender.Name(), defendRoll)
 
 		attackDamage := attackRoll * m.attacker.Attack()
 		defendDamage := defendRoll * m.defender.Strength()
-		println(m.attacker.Name(), "deals", attackDamage, "damage,", m.defender.Name(), "deals", defendDamage, "damage")
+		helpers.PrintAttackDetails(attackDamage, defendDamage)
 
 		netDamage := attackDamage - defendDamage
 		if netDamage < 0 {
@@ -48,11 +51,10 @@ func (m *Match) Fight() string {
 		}
 
 		m.defender.SetHealth(m.defender.Health() - netDamage)
-		println(m.attacker.Name(), "has", m.attacker.Health(), "health,", m.defender.Name(), "has", m.defender.Health(), "health")
-
+		helpers.PrintHealthDetails(m.attacker.Health(), m.defender.Health())
 		// Switch roles for next turn
 		m.attacker, m.defender = m.defender, m.attacker
-		println()
+		round++
 	}
 
 	if m.attacker.Health() <= 0 {
