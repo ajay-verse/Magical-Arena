@@ -20,13 +20,8 @@ Magical Arena/
 │   ├── match/
 │   │   ├── match.go
 │   │   └── match_test.go
-│   ├── utils/
-│       ├── constants/
-│       │   └── constants.go
-│       ├── dice/
-│       │   └── dice.go
-│       └──  helpers/
-│           └── helpers.go
+│   ├── dice/
+│       ├── dice.go
 ├── go.mod
 ├── Problem Statement.txt
 └── README.md
@@ -57,45 +52,6 @@ go run ./cmd/magicalarena/main.go
 3. Command to run test files
 ```bash
 go test ./...
-```
-
-## Sample Output
-```
-
-	    ✨ Welcome to Magical Arena ✨
-
-🧙 Karna Details 🧙
-🩸 Health: 100  💪 Strength: 5  🏹 Attack: 10
-
-🧙 Arjuna Details 🧙
-🩸 Health: 50  💪 Strength: 10  🏹 Attack: 5
-
-    🏹 Attack: 1 🏹
-
-Arjuna 🎲 1 vs Karna 🎲 4
-Attack🏹 5 vs Defence🛡️ 20
-Health🔋 50 vs Health🔋 100
-
-    🏹 Attack: 2 🏹
-
-Karna 🎲 3 vs Arjuna 🎲 2
-Attack🏹 30 vs Defence🛡️ 20
-Health🔋 100 vs Health🔋 40
-
-    🏹 Attack: 3 🏹
-
-Arjuna 🎲 2 vs Karna 🎲 6
-Attack🏹 10 vs Defence🛡️ 30
-Health🔋 40 vs Health🔋 100
-
-    🏹 Attack: 4 🏹
-
-Karna 🎲 6 vs Arjuna 🎲 2
-Attack🏹 60 vs Defence🛡️ 20
-Health🔋 100 vs Health🔋 0
-
-
-🎉 Hurray! Karna Won 🎉
 ```
 
 ## Magical Arena - Player Package
