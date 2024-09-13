@@ -2,8 +2,7 @@ package match
 
 import (
 	player "magicalarena/internal/player"
-	dice "magicalarena/internal/utils/dice"
-	helpers "magicalarena/internal/utils/helpers"
+	dice "magicalarena/internal/dice"
 )
 
 // Match represents a single match between two players.
@@ -35,15 +34,11 @@ func CreateNewMatch(player1 *player.Player, player2 *player.Player) *Match {
 func (m *Match) Fight() string {
 	var round int = 1
 	for m.attacker.Health() > 0 && m.defender.Health() > 0 {
-		helpers.PrintRoundName(round)
-
 		attackRoll := dice.RollD6()
 		defendRoll := dice.RollD6()
-		helpers.PrintDiceRollDetails(m.attacker.Name(), attackRoll, m.defender.Name(), defendRoll)
 
 		attackDamage := attackRoll * m.attacker.Attack()
 		defendDamage := defendRoll * m.defender.Strength()
-		helpers.PrintAttackDetails(attackDamage, defendDamage)
 
 		netDamage := attackDamage - defendDamage
 		if netDamage < 0 {
@@ -51,7 +46,6 @@ func (m *Match) Fight() string {
 		}
 
 		m.defender.SetHealth(m.defender.Health() - netDamage)
-		helpers.PrintHealthDetails(m.attacker.Health(), m.defender.Health())
 		// Switch roles for next turn
 		m.attacker, m.defender = m.defender, m.attacker
 		round++
