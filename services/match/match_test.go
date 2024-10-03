@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	// Local Packages
-	player "magicalarena/internal/player"
+	player "magicalarena/services/player"
 )
 
 // TestCreateNewMatch tests the CreateNewMatch function.

@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	// Local Packages
-	match "magicalarena/internal/match"
-	player "magicalarena/internal/player"
+	match "magicalarena/services/match"
+	player "magicalarena/services/player"
 )
 
 func main() {

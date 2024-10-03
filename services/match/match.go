@@ -1,8 +1,8 @@
 package match
 
 import (
-	player "magicalarena/internal/player"
-	dice "magicalarena/internal/dice"
+	player "magicalarena/services/player"
+	dice "magicalarena/utils/dice"
 )
 
 // Match represents a single match between two players.
